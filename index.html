@@ -1,0 +1,163 @@
+<script src="https://s3-us-west-2.amazonaws.com/cdn.thegrid.io/gss/v2.0.0/v2.0.0/gss.js"></script>
+
+
+
+
+
+<style type="text/css">
+    div {
+        background-color: hsla(30,100%,90%,1);
+        color: hsla(350,100%,60%,1);
+        border: solid 3px hsla(30,100%,80%,1);
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+</style>
+
+<!-- Demo1
+
+<div id="gss">Hello world</div>
+
+<div id="cassowary">Hello GSS</div>
+
+
+<style type="text/gss">
+div[height] == 100;
+div[width] == 150;
+
+div[center-y] == window[center-y];
+
+div[font-size] == div[height] / 4;
+
+</style> -->
+
+<!--
+Demo 2
+<div id="panel">
+<div id="button1">button1</div>
+<div id="button2">button2</div>
+<div id="button3">button3</div>
+</div>
+
+
+<style type="text/gss">
+div[height] >= 60;
+div[width] >= 100;
+#panel[width] == #button1[width] + #button2[width] + #button3[width] + 20; !strong
+
+
+#panel[left] + 10 == #button1[left];
+#button1[right] + 20 == #button2[left];
+#button2[right] + 20 == #button3[left];
+#button4[right] + 20 == #button4[left];
+#panel[right] - 10 == #button4[right];
+
+
+//not sure what's up with panel pattern, besides that theres a SASS panel thing...
+//also the vfl thing that doesn't have a working example... I can't seem to get working...
+
+#panel[height] == #button3[height];
+
+</style>
+-->
+
+
+<!-- Demo4
+
+<div id="panel"></div>
+<div class="button button1">button1</div>
+<div class="button button2">button2</div>
+<div class="button button3">button3</div>
+
+<style type="text/gss">
+#panel[height] == .button[height] + 40;
+
+.button[width] == 150;
+.button[height] == 60;
+
+custom-gap == 40;
+
+@h |-(.button1)-(.button2)-(.button3)-| in(#panel) gap(custom-gap);
+
+/* It's semicolon sensetive! */
+
+
+
+</style>
+-->
+
+<!-- Demo5
+
+<div id="panel"></div>
+<div class="button button1">button1</div>
+<div class="button button2">button2</div>
+<div class="button button3">button3</div>
+
+<style type="text/gss">
+#panel[height] == .button[height] + 40;
+#panel[width] == 500;
+#panel[center-x] == ::window[center-x];
+#panel[center-y] == ::window[center-y];
+
+.button[width] == 150;
+.button[height] == 60;
+
+custom-gap == 40;
+
+@h |-(.button1)-(.button2)-(.button3)-| in(#panel) gap(custom-gap);
+
+
+/* It's semicolon sensetive!
+
+#panel[right] + 8 == ::window[center-x];
+::window[center-x] + 8 == #panel[left];    */
+
+
+
+</style> -->
+
+
+<!--
+Demo 6
+
+<div class="poster">poster</div>
+<div class="clock">clock</div>
+
+
+<style type="text/gss">
+
+    .poster[size] == 500;
+    .clock[height] == 50;
+        .clock[width] == 100;
+
+    @h <::window[center-x]>-(.poster)-(.clock)-<::window[right]> gap(7);
+
+
+
+
+</style>
+ -->
+
+
+
+<div class="box">box</div>
+
+
+<style type="text/gss">
+    .box[size] == 100;
+    row2 == 200;
+
+    @v <100>(.box)<row2>;
+    @h <::window[center-x]>(.box);
+
+
+</style>
+
+
+
+<script type="text/javascript">
+    window.engine = new GSS(document);
+
+</script>
